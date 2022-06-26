@@ -15,6 +15,9 @@ const appFunctions = [
   "チャット機能"
 ];
 
+appFunctionNumber = appFunctions.length;
+console.log(appFunctionNumber);
+
 // select用for文 もっときれいに書けそう
 selectFunctions = [];
 appFunctions.forEach( function( value, index ){
@@ -23,9 +26,8 @@ appFunctions.forEach( function( value, index ){
 console.log(selectFunctions);
 
 //optionを追加
-let select = document.getElementById("appFunctionNumber");
 window.onload = function addOption() {
-  for (let i = 0; i < appFunctions.length; i++){
+  for (let i = 0; i < appFunctionNumber; i++){
   let select = document.getElementById("appFunctionNumber");
   let option = document.createElement("option");
   option.text = selectFunctions[i];
@@ -34,3 +36,31 @@ window.onload = function addOption() {
   }
 }
 
+//go btn
+function startSlot() {
+  let slots = document.getElementById("slots");
+  let slot = document.createElement("div");
+  let appFunction = document.createElement("p");
+  //selectから値を取得
+  let selectedFunctionNumber = document.getElementById("appFunctionNumber").value;
+//  console.log(selectedFunctionNumber);
+  //slot用random生成
+  let selectedFunctionArray = [];
+  for(let i = 0; i < selectedFunctionNumber; i++){
+    let num = Math.floor(Math.random() * appFunctionNumber);
+    //console.log(num);
+    if(!selectedFunctionArray.includes(num)){
+      selectedFunctionArray.push(appFunctions[num]);
+    }
+  }
+  appFunction.textContent = selectedFunctionArray;
+  slot.appendChild(appFunction);
+  slots.appendChild(slot);
+}
+
+
+ //memo
+// randomのかぶりをなくしたい
+// リセットボタン作成
+// css調整
+// リファクタリング

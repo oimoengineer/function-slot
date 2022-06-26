@@ -14,17 +14,11 @@
     <p>機能をいくつ実装しますか</p>
       <select name="number" id="appFunctionNumber">
       </select><!-- /# -->
-      <button class="start-btn">START</button>
-      <button class="stop-btn">STOP</button>
+      <button class="start-btn" onclick="startSlot()">Go</button>
+      <button class="stop-btn">RESET</button>
     
   </div>
-  <div class="slots">
-    <div class="slot" id="slot">
-      <p>機能名</p>
-    </div>
-    <div class="slot" id="slot">
-      <p>機能名</p>
-    </div>
+  <div class="slots" id="slots">
   </div>
   <script src="index.js"></script>
 </body>
